@@ -1,281 +1,276 @@
+#importing tkinter to add simple widgets
 from tkinter import *
-root=Tk()
+root = Tk()
 
-def game():
+#outer while loop to make sure that the game can be repeated even when  
+#one of the storylines has been completed.
+while True:
+#a loop to make the code repeat if the input to the first decision is invalid
+  while True:
+    #Game created by Moaz and Thomas, this choice game is a satire game where 
+    #unexpected choices bring forth unexpected outcomes. this may not be funny to most, 
+    #but it was funny to us. 
+    #displaying the title and storing the players' name
+    print("BORING SATURDAY")
+    #empty print statements to space out the console a bit 
+    print()
+    #entry field
+    player_name = Entry(root)
+    #retrieves name from input field
+    player_name.pack()
+    player_name.get()
+    print()
+    print("Man, I'm bored today. I need something to do.")
+    print("1.Go to the kitchen")
+    print("2.Go on a walk")
+    #loop and try/except to make sure a player cannot proceed without 
+    #entering a proper input. these smaller loops are repeated everytime there is
+    #a new input. keeping inputs simple with numbers instead of words
+    while True:  
+      try:
         print()
-        print("BORING SATURDAY")
+        decision = int(input("What do you choose to do: "))
+        break
+      except ValueError:
         print()
-        username=input("Enter your name: ")
-
-  def raccoon_invest():
+        print("That is not a valid option. Try Again")
+    #branching off different possible story paths.
+    if decision == 1:
       print()
-      print(f"{username} finds a raccoon and a creature rummaging through your fridge")
-      print("1. Ignore them and leave")
-      print("2. Chase them outside")
+      print("You go down to the kitchen... there are some rummaging noises when all of a sudden you see a raccoon and a bush-like creature raiding your fridge. what do you choose to do?")
+      print("1.Escape")
+      print("2.Chase them")
+      #branching off within branches 
+      while True:
+        try:
+          print()
+          decision_2 = int(input("What do you choose to do:  "))
+          break
+        except ValueError:
+          print()
+          print("That is not a valid option. Try Again")  
+      if decision_2 == 1:
+        #f string for efficiency in calling upon variables in print statements
+        print()
+        print(f"The invader realizes {player_name.get()} is a beta and they beat {player_name.get()} to death for being a wuss")
+        print()
+        print("GAME OVER")
+        #this break statement is repeated after most if statements in this
+        #program so that it doesnt automatically loop once the if statement
+        #is completed
+        break
+      #repeat all of the elements accordingly for all the other story paths
+      elif decision_2 == 2:
+        print()
+        print(f"{player_name.get()} chases them outside where they split up. which one will you chase?  ")
+        print()
+        print("1.Bush creature")
+        print("2.Raccoon")
+        decision_3 = int(input("What do you choose to do:  "))
+        if decision_3 == 1:
+          print()
+          print(f"{player_name.get()} chases the creature into the woods where it gathers with a child-sized ferret and a statue of George Washington. They're discussing something about a coup. {player_name.get()} can't believe it.")
+          print()
+          print("1.Take a photo")
+          print("2.Escape")
+          print("3.Join them")
+          while True:
+            try:
+              print()
+              decision_4 = int(input("What do you choose to do:  "))
+              break
+            except ValueError:
+              print()
+              print("That is not a valid option. Try Again")
+          if decision_4 == 1:
+            print()
+            print(f"{player_name.get()} takes a photo. but they saw the flash so you were caught and beat to death. it's 1pm. what do you have flash on for? you deserved that, you dirty snitch.")
+            print()
+            print("GAME OVER")
+            break
+          elif decision_4 == 2:
+            print()
+            print(f"{player_name.get()} attempts to escape but snaps a stick on the way out. look where you're going next time genius lol. you obviously get beat to death.")
+            print()
+            print("GAME OVER")
+            break
+          elif decision_4 == 3:
+            print()
+            print(f"{player_name.get()} accepts defeat due to incompetence and join the mysterious gang. {player_name.get()} is accepted into the group.")
+            print()
+            print("YOU WIN!")
+            break
+          #else statements used to stop players from entering undesired inputs
+          else:
+            print()
+            print("invalid option")
+            #continue statements used to automatically repeat the immediate
+            #loop so that players cannot advance without the proper inputs
+            continue
+        if decision_3 == 2:
+          print()
+          print(f"{player_name.get()} chases the raccoon a few houses down where it ends in a standoff. What will they do?")
+          print()
+          print("1.Throw something at it")
+          print("2.Let it be")
+          print("3.Grab it")
+          while True:
+            try:
+                print()
+                decision_5 = int(input("What do you choose to do: "))
+                break
+            except ValueError:
+                print()
+                print("That is not a valid option. Try Again")
+          if decision_5 == 1:
+              print()
+              print(f"{player_name.get()} threw a stick at the raccoon.")
+              print(f"the raccoon hit it back at {player_name.get()} with the force of 1000 suns. {player_name.get()} incinerates and dies instantly.")
+              print()
+              print("GAME OVER")
+              break
+          elif decision_5 == 2:
+              print()
+              print(f"John Quiñones, host of What Would You Do appears. 'Congratulations, {player_name.get()}. I'm John Quiñones,host of What Would You Do, and this raccoon is a paid actor. You did well.'")
+              print()
+              print("YOU WIN!")
+              break
+          elif decision_5 == 3:
+              print()
+              print(f"{player_name.get()} tries to grab the raccoon, but is bitten by it. {player_name.get()} transforms into a were-raccoon and wreaks havoc on everyone in town.")
+              print()
+              print("YOU WIN!")
+              break
+          else:
+            print()
+            print("invalid option")
+            continue
+            #the 'go to kitchen' potential storylines end here
+    #this is what happens if the player chooses to go on a walk
+    elif decision == 2:
+        print()
+        print(f"{player_name.get()} is out on the street when they spot a statue of George Washington head into the forest. What will they do?")
+        print()
+        print("1.Ignore and continue walking.")
+        print("2.Follow the statue.")
+        while True:
+            try:
+                print()
+                decision_6 = int(input("What do you choose to do:  "))
+                break
+            except ValueError:
+                print()
+                print("That is not a valid option. Try Again")
+        if decision_6 == 1:
+          print()
+          print(f"{player_name.get()} continued walking.")
+        elif decision_6 == 2:
+          print()
+          print(f"{player_name.get()} was spotted and caught a mean right hook from the statue. {player_name.get()} is out cold")
+          print()
+          print("GAME OVER")
+          break
+        else:
+          print()
+          print("Invalid option")
+          continue
+        print()
+        print(f"{player_name.get()} reaches a crossroads. Which way will they go?")
+        print()
+        print("1.right")
+        print("2.straight")
+        print("3.left")
+        while True:
+          try:
+            print()
+            decision_i=int(input("Which way do you choose: "))
+            break
+          except ValueError:
+            print()
+            print("That is not a valid option. Try Again")
+        if decision_i == 1:
+          print()
+          print(f"{player_name.get()} stumbles across a vampire and a T-rex having a dance off in the middle of the street. What will you do?")
+          print()
+          print("1.Join in")
+          print("2.Ignore them")
+          while True:
+            try:
+              print()
+              int_right=int(input("What will you do"))
+              break
+            except ValueError:
+              print()
+              print("That is not a valid option. Try Again")
+          if int_right==1:
+            print()
+            print(f"{player_name.get()} decides to show them why they call you the modern Micheal Jackson. They are thouroughly impressed and decide to become your buddies")
+            print()
+            print("YOU WIN")
+            break
+          elif int_right==2:
+            print()
+            print(f"{player_name.get()} decided to ignore them. Unfortunately they caught you before you could leave. They decided to give you the beats because you wanted to be a lame")
+            print()
+            print("GAME OVER")
+            break
+        elif decision_i == 2:
+          print()
+          print(f"{player_name.get()} decided to be foolish and went straight. You were obviously trampled by a marching band of elephants")
+          print()
+          print("GAME OVER")
+          break
+        elif decision_i == 3:
+          print()
+          print(f"{player_name.get()} heads left and you are met with 2 old ladies arguing about a shared yard. What will you do?")
+          print()
+          print("1.Try to act as a mediator")
+          print()
+          print("2.Ignore them")
+          while True:
+            try:
+              print()
+              int_left=int(input("What will you do:  "))
+              break
+            except ValueError:
+              print()
+              print("That is not a valid option. Try Again")
+          if int_left==1:
+            print()
+            print(f"{player_name.get()} chooses to try to help them but end up getting yourself and the other lady shot because you couldn't just mind your business")
+            print()
+            print("GAME OVER")
+            break
+          elif int_left==2:
+            print()
+            print(f"{player_name.get()} decides to mind your business(as you should) and you make it home safely")
+            print()
+            print("YOU WIN")
+            break
+          else:
+            print()
+            print("Invalid option")
+            continue
+        else:
+            print()
+            print("Invalid option")
+    else:
+      print()
+      print("invalid option")
       
-      myButtonp=Button(root, text="Ignore them and leave", command=raccoon_beats)
-      myButtont=Button(root, text="Chase them outside", command=invader_chase)
-
-      myButtonp.pack()
-      myButtont.pack()
-
-      myButton1.pack_forget()
-      myButton2.pack_forget()
-      
-      root.mainloop()
-
-  
-  def raccoon_beats():
-      print()
-      print(f"{username} was attacked because invaders realized that {username} is a dumb wuss")
-      print()
-      print("GAME OVER")
-      game()
-      
-
-
-
-
-  def invader_chase():
-      print()
-      print("The creature and raccoon went in opposite directions...Which one will you follow?")
-      print("1. The raccoon")
-      print("2. The creature")
-
-      myButton5=Button(root, text="The raccoon", command=rac_standoff)
-      myButton6=Button(root, text="The creature")
-
-      
-      myButton5.pack()
-      myButton6.pack()
-
-      
-      root.mainloop()
-  
-
-
-
-
-
-  def rac_standoff():
-      print()
-      print(f"{username} and the raccoon are in a standoff...What will you do?")
-      print("1. Throw a stick")
-      print("2. Leave it be")
-      print("3. Grab it")
-
-      myButton_throw=Button(root, text="Throw a stick", command=throw)
-      myButton_leave=Button(root, text="Leave it be", command=leave)
-      myButton_grab=Button(root, text="Grab it", command=grab)
-
-      myButton_throw.pack()
-      myButton_leave.pack()
-      myButton_grab.pack()
-
-
-      root.mainloop
-
-  def picture():
-      print()
-      print(f"{username} took a picture")
-      print("You idiot you left the flash on. They ended up beating you to death. Next time keep your flashlight off lol. Why do you even have it on it's the middle of the day, serves you right.")
-      print()
-      print("GAME OVER")
-      game()
-
-
-
-  def run():
-      print()
-      print(f"{username} tried to run away. You ended up stepping on a branch. What do you think they did after they heard you smooth head. They beat you to death. You were basically asking for it.")
-      print()
-      print("GAME OVER")
-      game()
-
-
-
-  def lefty_ignore():
-      print()
-      print(f"{username} decided to ignore them. Unfortunately they caught you before you could walk by. They decided that the best thing to do is give you the beats since you wanted to be a lame.")
-      print()
-      print("GAME OVER")
-      game()
-
-  def lefty_join():
-      print()
-      print("You decided to show them why they call you the Modern Day Micheal Jackson. You ended up making new buddies and bringing them over to your house.")
-      print()
-      print("WINNER")
-      exit()
-  
-  
-  
-          
-  def left():
-      print()
-      print("You decided to go left and were met with a vampire and a T-rex having a spectacular dance off. They notice you and ask you to join. What will you do?")
-      print("1. Ignore them")
-      print("2. Join them ")
-      left_ignore=Button(root, text="Ignore them", command=lefty_ignore)
-      left_join=Button(root, text="Join them", command=lefty_join)
-
-      left_ignore.pack()
-      left_join.pack()
-      
-
-
-  def straightup():
-      print()
-      print(f"{username} decided to be foolish and go straight. You were trampled by a band of marching elephants. How did you not see them coming from a mile away. Serves you right.")
-      print()
-      print("GAME OVER")
-      game()
-
-
-  def assist():
-      print()
-      print(f"{username} decided to try to help the ladies resolve their issue. Unfortunately the granny shot you and her neighbour because you just couldn't mind business")
-      print()
-      print("GAME OVER")
-      game()
-
-  def home():
-      print()
-      print(f"You decide to let the two ladies argue and head back home. {username} gets to their house safe and sound and decides to take a nap")
-      print()
-      print("WINNER")
-      exit()
-  
-  
-
-
-  
-  def right():
-      print()
-      print("You head right and are met with 2 old ladies arguing about a shared yard. What will you do?")
-      print("1. Help them")
-      print("2. Go home")
-      right_help=Button(root, text="Help them", command=assist)
-      right_leave=Button(root, text="Go home", command=home)
-
-
-      right_help.pack()
-      right_leave.pack()
-
-
-
-
-
-  def join():
-      print()
-      print(f"{username} realizes that they are too incompetent to plan out a successfull coup. So you decide to join them and help them plan.")
-      print()
-      print("After helping them you conclude that it's time to go and you head home")
-      print()
-      print(f"{username} reaches an intersection. Which way do you decide to go?")
-      print("1. Right")
-      print("2. Left")
-      print("3. Straight")
-      go_right=Button(root, text="Right", command=right)
-      go_left=Button(root, text="Left", command=left)
-      go_straight=Button(root, text="Straight", command=straightup)
-
-      go_right.pack()
-      go_left.pack()
-      go_straight.pack()
-
-      
-      
-  def ignore():
-      print()
-      print("The statue caught you trying to sneak away and hit you with a smooth falcon punch to the jaw.")
-      print()
-      print("GAME OVER")
-      game()
-
-  def follow():
-      print()
-      print(f"{username} follow the creature into the woods where it gathers with a child-sized ferret and a George Washington Statue. They’re discussing something about a coup.What will you do?!")
-      print("1. Take a picture")
-      print("2. Run away")
-      print("3. Join them")
-      coup_picture=Button(root, text="Take a picture", command=picture)
-      coup_escape=Button(root, text="Run away", command=run)
-      coup_join=Button(root, text="Join them", command=join)
-
-      coup_picture.pack()
-      coup_escape.pack()
-      coup_join.pack()
-            
-      
-
-  def throw():
-      print()
-      print("The raccoon hits the stick back with the strength of 1000 suns. You combust instantly.")
-      print()
-      print("GAME OVER")
-      game()
-  
-
-  def grab():
-      print()
-      print(f"{username} tried to grab the raccoon. The raccoon bit you and response and you turned into were-raccoon. You then went on to destroy the whole town.")
-      print()
-      print("GAME OVER")
-
-  def leave():
-      print()
-      print(f"John Quiñones, host of What Would You Do appears. 'Congratulations, {username}. I'm John Quiñones,host of What Would You Do, and this raccoon is a paid actor. You did well.'")
-      print()
-      print("You decide that since you're already out you might as well go on a short walk")
-      print()
-      print("You notice a statue of George Washington walking into a forest. What will you do next")
-      print("1. Ignore it")
-      print("2. Follow it")
-      george_ignore=Button(root, text="Ignore it", command=ignore)
-      george_follow=Button(root, text="Follow it", command=follow)
-
-      george_ignore.pack()
-      george_follow.pack()
-      
-  
-  def walk():
-      print()
-      print("You notice a statue of George Washington walking into a forest. What will you do next")
-      print("1. Ignore it")
-      print("2. Follow it")
-      george_ignore=Button(root, text="Ignore it", command=ignore)
-      george_follow=Button(root, text="Follow it", command=follow)
-
-      george_ignore.pack()
-      george_follow.pack()
-      
-      
-
-
-  
-      
-  print("Man I'm bored today. I need something to do.")
-  print("1. Go to the kitchen")
-  print("2. Go on a walk")
-
-  myButton1 = Button(root, text="Go to the kitchen", command=raccoon_invest)
-  myButton2= Button(root, text="Go on a walk", command=walk)
-
-  myButton1.pack()
-  myButton2.pack()
-
-
-    
-
-
-    
-    root.mainloop()
-            
-
-
-
-    
-
-game()
-
+#placed inside the outermost while loop, this allows players to decide whether or 
+#not they would like to repeat
+  print()
+  play_again = input("Would you like to play again (yes/no): ")
+  if play_again.lower() == "yes":
+    print()
+    print()
+    print()
+    print()
+    continue
+  elif play_again.lower() == "no":
+    print()
+    print("Thank you for playing.")
+    break      
+
+root.mainloop()
